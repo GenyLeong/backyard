@@ -1,0 +1,101 @@
+@import '../bulma/utilities/utilities';
+@import '../bulma/config/variables';
+$blue: #72d0eb; // Update blue
+$pink: #ffb3b3; // Add pink
+$family-serif: "Georgia", serif; // Add a serif family
+$white: #FFFFFF;
+$size-5:21px;
+@import '../bulma/config/generated-variables';
+$danger: $orange; // Use the existing orange
+$family-primary: $family-serif; // Use the new serif family
+$body-background: $white;
+@import '../bulma/base/base';
+@import '../bulma/elements/elements';
+@import '../bulma/components/components';
+@import '../bulma/layout/layout';
+
+@mixin background() {
+	background-repeat: no-repeat;
+	background-position-y: 0%;
+	min-height: 500px;
+}
+
+@mixin v-center(){
+	display: flex;
+    align-items: center;
+}
+
+$blue-light-color:#3CB1F7;
+$gray-light-color: #F6F6F6;
+$space-21:21px;
+
+.blue-light-color{
+	color:$blue-light-color;
+}
+.gray-light-color{
+	background-color: $gray-light-color;
+}
+.hero-image{
+	background: url('../../images/1920x665-1.jpg');
+	background-size: inherit;
+	@include background();
+	height: 72%;
+}
+
+html{
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	@extend html;
+	font-family: 'Lato';
+	font-size: 16px;
+}
+
+.bg-color{
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+	@include v-center();
+
+	h1, p{
+		color:$white;
+	}
+}
+
+.btn-features, .btn-subscribe{
+		border-radius: 40px;	
+}
+
+.btn-subscribe{
+		background-color: transparent;
+		@extend .blue-light-color;
+		border-color:$blue-light-color;
+} 
+
+.box-shadow{
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.phone-img{
+	padding: 8%;
+}
+
+.sp-21{
+	padding:$space-21;
+}
+
+@media (max-width: 768px){
+	.phone-img-2{
+		padding: 8%;
+	}
+
+	.is-half-mobile{
+		margin-left: 30%;
+	}
+}
+
+footer{
+	@include v-center();
+	@extend html;
+}
