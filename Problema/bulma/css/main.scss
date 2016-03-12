@@ -29,15 +29,29 @@ $blue-light-color:#3CB1F7;
 $gray-light-color: #F6F6F6;
 $space-21:21px;
 
+@mixin margin($mv, $mh){
+	margin:{
+		top: $mv;
+		bottom: $mv;
+		left: $mh;
+		right: $mh;
+	}
+}
+
 .blue-light-color{
 	color:$blue-light-color;
 }
 .gray-light-color{
 	background-color: $gray-light-color;
 }
+
+.mv-20{
+	@include margin(20px, 0px);
+}
+
 .hero-image{
 	background: url('../../images/1920x665-1.jpg');
-	background-size: inherit;
+	background-size: cover;
 	@include background();
 	height: 72%;
 }
@@ -61,6 +75,16 @@ body{
 	h1, p{
 		color:$white;
 	}
+
+	p{
+		margin: $space-21 0px;
+	}
+	span:first-child{
+		@include margin(0px, 14px);
+	}
+	.fa-apple, .fa-android{
+		@include margin(0px, 7px);
+	}
 }
 
 .btn-features, .btn-subscribe{
@@ -71,6 +95,7 @@ body{
 		background-color: transparent;
 		@extend .blue-light-color;
 		border-color:$blue-light-color;
+		margin: 0px $space-21;
 } 
 
 .box-shadow{
@@ -85,17 +110,108 @@ body{
 	padding:$space-21;
 }
 
-@media (max-width: 768px){
-	.phone-img-2{
-		padding: 8%;
+
+.socials, footer{
+	@include v-center();
+	justify-content:center;
+}
+footer{
+	p:first-child{
+		@include margin(0px, 7px);
+	}
+}
+@mixin circle-network(){
+	border: 1px solid $blue-light-color;
+	height: 60px;
+	width: 60px;
+	border-radius: 50%;
+	margin: 14px;
+}
+
+.fb-network, .twitter-network, .google-network, .instagram-network{
+	@include circle-network();
+}
+
+.fa-twitter{
+	font-size: 49px;
+	position: relative;
+	left: 7px;
+	top: 4px;
+}
+
+.fa-facebook{
+	font-size: 42px;
+    position: relative;
+	left: 15px;
+	top: 8px;
+}
+
+.ion-social-googleplus-outline{
+	font-size: 42px;
+	position: relative;
+	left: 11px;
+	bottom: 1px;
+}
+
+.fa-instagram {
+	font-size: 36px;
+	position: relative;
+	left: 14px;
+	top: 10px;
+}
+
+@media (max-width: 768px) {
+	.phone-img{
+		padding: 4% 27%;
 	}
 
-	.is-half-mobile{
-		margin-left: 30%;
+	@mixin circle-network(){
+	border: 1px solid $blue-light-color;
+	height: 45px;
+	width: 45px;
+	border-radius: 50%;
+	margin: 14px;
+	}
+
+	.fb-network, .twitter-network, .google-network, .instagram-network{
+	@include circle-network();
+}
+
+.fa-twitter{
+	font-size: 37px;
+	position: relative;
+	left: 5px;
+	top: 4px;
+}
+
+.fa-facebook{
+	font-size: 36px;
+	position: relative;
+	left: 10px;
+	top: 6px;
+}
+
+.ion-social-googleplus-outline{
+	font-size: 37px;
+	position: relative;
+	left: 6px;
+	bottom: 4px;
+}
+
+.fa-instagram {
+	font-size: 34px;
+	position: relative;
+	left: 7px;
+	top: 6px;
+}
+	.button.is-large{
+		font-size: 17px;
 	}
 }
 
-footer{
-	@include v-center();
-	@extend html;
+@media (min-width: 768px){
+.container.is-fluid {
+    margin: 0 20px;
+    max-width: none;
+}
 }
